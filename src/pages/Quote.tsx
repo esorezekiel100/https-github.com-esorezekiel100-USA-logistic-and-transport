@@ -18,17 +18,17 @@ export default function Quote() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen pt-32 pb-24 flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen pt-24 pb-16 flex items-center justify-center bg-gray-50 px-4">
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="max-w-md w-full bg-white p-12 rounded-3xl shadow-xl text-center"
+          className="max-w-md w-full bg-white p-8 md:p-12 rounded-3xl shadow-xl text-center"
         >
-          <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
-            <CheckCircle2 className="w-10 h-10" />
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8">
+            <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
           </div>
-          <h2 className="text-3xl font-bold text-[#0A2540] mb-4">Request Received</h2>
-          <p className="text-gray-600 mb-8 leading-relaxed">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#0A2540] mb-4">Request Received</h2>
+          <p className="text-sm sm:text-base text-gray-600 mb-8 leading-relaxed">
             Thank you for choosing USAL! We have received your quote request and one of our logistics specialists will contact you within **1 business hour**.
           </p>
           <button 
@@ -43,23 +43,23 @@ export default function Quote() {
   }
 
   return (
-    <div className="min-h-screen pt-32 pb-24 bg-gray-50">
+    <div className="min-h-screen pt-24 md:pt-32 pb-16 md:pb-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-start">
           
           {/* Form Content */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <div className="inline-block px-4 py-1 bg-[#E85D04]/10 text-[#E85D04] text-xs font-bold uppercase tracking-widest mb-6 rounded-full">
+            <div className="inline-block px-4 py-1 bg-[#E85D04]/10 text-[#E85D04] text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4 md:mb-6 rounded-full">
               Instant Pricing
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-[#0A2540] mb-6 tracking-tighter leading-none">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#0A2540] mb-6 tracking-tighter leading-none">
               Get Your Free <br />
               <span className="text-[#E85D04]">No-Obligation</span> Quote
             </h1>
-            <p className="text-lg text-gray-600 mb-12 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 mb-8 md:mb-12 leading-relaxed">
               Complete the form below and receive a customized logistics proposal tailored to your specific vehicle transport needs.
             </p>
 
@@ -84,11 +84,11 @@ export default function Quote() {
               </div>
             </div>
 
-            <div className="mt-16 p-8 bg-[#0A2540] text-white rounded-3xl relative overflow-hidden">
+            <div className="mt-12 md:mt-16 p-6 sm:p-8 bg-[#0A2540] text-white rounded-[30px] relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-              <h3 className="text-xl font-bold mb-4">Immediate Assistance?</h3>
-              <p className="text-gray-400 text-sm mb-6">Our Houston dispatch team is standing by to help with urgent shipments.</p>
-              <a href="tel:+17135807463" className="inline-flex items-center text-[#E85D04] font-bold text-lg hover:underline transition-all">
+              <h3 className="text-lg md:text-xl font-bold mb-4">Immediate Assistance?</h3>
+              <p className="text-white/60 text-[13px] md:text-sm mb-6">Our Houston dispatch team is standing by to help with urgent shipments.</p>
+              <a href="tel:+17135807463" className="inline-flex items-center text-[#E85D04] font-black text-base md:text-lg hover:underline transition-all">
                 Call +1 (713) 580-7463
               </a>
             </div>
@@ -98,9 +98,9 @@ export default function Quote() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100"
+            className="bg-white p-6 sm:p-8 md:p-12 rounded-[30px] shadow-xl border border-gray-100"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Full Name</label>

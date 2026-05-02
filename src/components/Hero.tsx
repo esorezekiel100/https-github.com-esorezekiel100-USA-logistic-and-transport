@@ -87,7 +87,7 @@ export default function Hero() {
             }}
           />
           
-          <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center pt-20 md:pt-48">
+          <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center pt-24 md:pt-48">
             <div className="max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -99,12 +99,12 @@ export default function Hero() {
                   {slides[currentSlide].label}
                 </div>
                 
-                <h1 className="text-3xl sm:text-5xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.95]">
+                <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter leading-[0.95]">
                   {slides[currentSlide].title.split(" ").slice(0, 2).join(" ")} <br />
                   <span className="text-white opacity-80">{slides[currentSlide].title.split(" ").slice(2).join(" ")}</span>
                 </h1>
                 
-                <p className="text-[13px] md:text-lg text-gray-300 max-w-md leading-relaxed font-light">
+                <p className="text-[12px] sm:text-[13px] md:text-lg text-gray-300 max-w-xs sm:max-w-md leading-relaxed font-light">
                   {slides[currentSlide].desc}
                 </p>
 

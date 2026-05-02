@@ -21,17 +21,17 @@ export default function StartShipment() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen pt-32 pb-24 flex items-center justify-center bg-brand-light">
+      <div className="min-h-screen pt-24 pb-16 flex items-center justify-center bg-brand-light px-4">
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="max-w-md w-full bg-white p-12 shadow-2xl rounded-sm border-t-4 border-brand-orange text-center"
+          className="max-w-md w-full bg-white p-8 md:p-12 shadow-2xl rounded-sm border-t-4 border-brand-orange text-center"
         >
-          <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
-            <CheckCircle2 className="w-10 h-10" />
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8">
+            <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
           </div>
-          <h2 className="text-3xl font-extrabold text-brand-blue mb-4 tracking-tighter uppercase">Shipment Booked</h2>
-          <p className="text-gray-500 mb-8 text-sm font-medium leading-relaxed">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-blue mb-4 tracking-tighter uppercase">Shipment Booked</h2>
+          <p className="text-gray-500 mb-8 text-xs sm:text-sm font-medium leading-relaxed">
             Your booking request has been initiated. Our dispatch team will verify the details and send your tracking manifest within **30 minutes**.
           </p>
           <button 
@@ -46,43 +46,43 @@ export default function StartShipment() {
   }
 
   return (
-    <div className="min-h-screen pt-32 pb-24 bg-brand-light">
+    <div className="min-h-screen pt-24 md:pt-32 pb-16 md:pb-24 bg-brand-light">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Progress Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 bg-brand-orange text-white text-[10px] font-bold uppercase tracking-widest mb-4 rounded-sm">
+        <div className="text-center mb-10 md:mb-16">
+          <div className="inline-block px-3 py-1 bg-brand-orange text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest mb-4 rounded-sm">
             Logistics Portal
           </div>
-          <h1 className="text-4xl md:text-6xl font-black text-brand-blue mb-8 tracking-tighter uppercase">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-black text-brand-blue mb-6 md:mb-8 tracking-tighter uppercase leading-none">
             Start <span className="text-brand-orange">Shipment</span>
           </h1>
           
-          <div className="relative flex justify-between max-w-lg mx-auto">
+          <div className="relative flex justify-between max-w-xs sm:max-w-lg mx-auto">
              {[1, 2, 3].map((s) => (
                <div key={s} className="flex flex-col items-center relative z-10">
-                 <div className={`w-10 h-10 rounded-full border-4 border-white flex items-center justify-center font-bold text-sm shadow-sm transition-colors ${
+                 <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full border-4 border-white flex items-center justify-center font-bold text-xs sm:text-sm shadow-sm transition-colors ${
                    step >= s ? "bg-brand-orange text-white" : "bg-gray-200 text-gray-500"
                  }`}>
                    {s}
                  </div>
-                 <span className={`text-[10px] uppercase font-black tracking-widest mt-3 ${
+                 <span className={`text-[8px] sm:text-[10px] uppercase font-black tracking-widest mt-2 sm:mt-3 ${
                    step >= s ? "text-brand-blue" : "text-gray-400"
                  }`}>
                    {s === 1 ? "Details" : s === 2 ? "Booking" : "Confirm"}
                  </span>
                </div>
              ))}
-             <div className="absolute top-5 left-0 w-full h-1 bg-gray-200 -z-0" />
+             <div className="absolute top-4 sm:top-5 left-0 w-full h-1 bg-gray-200 -z-0" />
              <div 
-               className="absolute top-5 left-0 h-1 bg-brand-orange transition-all duration-500 -z-0" 
+               className="absolute top-4 sm:top-5 left-0 h-1 bg-brand-orange transition-all duration-500 -z-0" 
                style={{ width: `${((step - 1) / 2) * 100}%` }}
              />
           </div>
         </div>
 
         {/* Multi-step Form */}
-        <div className="bg-white p-8 md:p-16 shadow-2xl rounded-sm border-t-4 border-brand-blue relative overflow-hidden">
+        <div className="bg-white p-6 sm:p-10 md:p-16 shadow-2xl rounded-sm border-t-4 border-brand-blue relative overflow-hidden">
           <form onSubmit={handleSubmit}>
             {step === 1 && (
               <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
@@ -146,9 +146,9 @@ export default function StartShipment() {
                   </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <button type="button" onClick={prevStep} className="flex-1 border-2 border-brand-blue py-5 text-brand-blue font-bold uppercase tracking-widest text-xs">Back</button>
-                  <button type="button" onClick={nextStep} className="flex-[2] bg-brand-blue text-white py-5 font-bold uppercase tracking-widest text-xs">Continue to Verification</button>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button type="button" onClick={prevStep} className="order-2 sm:order-1 flex-1 border-2 border-brand-blue py-4 sm:py-5 text-brand-blue font-bold uppercase tracking-widest text-[10px] sm:text-xs">Back</button>
+                  <button type="button" onClick={nextStep} className="order-1 sm:order-2 flex-[2] bg-brand-blue text-white py-4 sm:py-5 font-bold uppercase tracking-widest text-[10px] sm:text-xs">Continue to Verification</button>
                 </div>
               </motion.div>
             )}
@@ -171,12 +171,12 @@ export default function StartShipment() {
                    <div className="text-2xl font-black text-brand-blue">$1,280.00 <span className="text-xs text-brand-gray font-bold">Estimated</span></div>
                 </div>
 
-                <div className="flex gap-4">
-                  <button type="button" onClick={prevStep} className="flex-1 border-2 border-brand-blue py-5 text-brand-blue font-bold uppercase tracking-widest text-xs font-semibold">Back</button>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button type="button" onClick={prevStep} className="order-2 sm:order-1 flex-1 border-2 border-brand-blue py-4 sm:py-5 text-brand-blue font-bold uppercase tracking-widest text-[10px] sm:text-xs font-semibold">Back</button>
                   <button 
                     type="submit" 
                     disabled={loading}
-                    className="flex-[2] bg-brand-orange text-white py-5 font-bold uppercase tracking-widest text-xs shadow-xl active:scale-95 transition-transform"
+                    className="order-1 sm:order-2 flex-[2] bg-brand-orange text-white py-4 sm:py-5 font-bold uppercase tracking-widest text-[10px] sm:text-xs shadow-xl active:scale-95 transition-transform"
                   >
                     {loading ? "Allocating Fleet..." : "Confirm & Launch Shipment"}
                   </button>

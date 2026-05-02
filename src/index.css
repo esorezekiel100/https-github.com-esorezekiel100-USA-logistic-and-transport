@@ -19,7 +19,7 @@
 
 @layer base {
   body {
-    @apply font-sans text-brand-blue bg-brand-light;
+    @apply font-sans text-brand-blue bg-brand-light overflow-x-hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {

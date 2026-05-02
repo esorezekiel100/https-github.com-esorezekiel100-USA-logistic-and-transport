@@ -131,6 +131,90 @@ export default function Fleet() {
         </div>
       </section>
 
+      {/* Fleet Inventory Section */}
+      <section id="fleet-inventory" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-black text-[#0A2540] mb-4 tracking-tighter">Fleet Inventory</h2>
+              <p className="text-gray-500 text-[13px] md:text-sm max-w-xl leading-relaxed">
+                A live snapshot of our active asset distribution. All vehicles are equipped with ELD systems and undergo preventative maintenance every 15,000 miles.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-3 md:gap-4 bg-gray-50 p-2 rounded-2xl border border-gray-100 w-fit">
+              <div className="px-4 md:px-6 py-2 bg-white rounded-xl shadow-sm text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#E85D04]">
+                Active Units: 382
+              </div>
+              <div className="px-4 md:px-6 py-2 text-[9px] md:text-[10px] font-black uppercase tracking-widest text-gray-400">
+                Avg Age: 1.8 Years
+              </div>
+            </div>
+          </div>
+
+          <div className="relative group">
+            {/* Mobile Scroll Indicator Icon */}
+            <div className="md:hidden flex items-center justify-center gap-2 mb-4 text-[9px] font-bold text-brand-orange uppercase tracking-widest animate-pulse">
+              <span>Swipe to view details</span>
+              <ChevronRight className="w-3 h-3" />
+            </div>
+
+            <div className="overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+              <table className="w-full text-left min-w-[700px]">
+                <thead>
+                <tr className="border-b border-gray-100">
+                  <th className="pb-6 text-[10px] font-black uppercase tracking-widest text-gray-400">Unit ID</th>
+                  <th className="pb-6 text-[10px] font-black uppercase tracking-widest text-gray-400">Model & Specs</th>
+                  <th className="pb-6 text-[10px] font-black uppercase tracking-widest text-gray-400">Year</th>
+                  <th className="pb-6 text-[10px] font-black uppercase tracking-widest text-gray-400">Status</th>
+                  <th className="pb-6 text-[10px] font-black uppercase tracking-widest text-gray-400">Last Known Location</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {[
+                  { id: "T-2045", model: "Freightliner Cascadia", year: "2024", status: "In Service", location: "Houston, TX", color: "bg-green-500" },
+                  { id: "T-2041", model: "Peterbilt 579 UltraLoft", year: "2023", status: "In Service", location: "Birmingham, AL", color: "bg-green-500" },
+                  { id: "T-1998", model: "Volvo VNL 860", year: "2024", status: "Maintenance", location: "Dallas, TX", color: "bg-orange-500" },
+                  { id: "T-2033", model: "Kenworth T680", year: "2023", status: "In Service", location: "Atlanta, GA", color: "bg-green-500" },
+                  { id: "T-2050", model: "Freightliner Cascadia", year: "2024", status: "Resting", location: "Nashville, TN", color: "bg-blue-500" },
+                  { id: "T-1855", model: "International LT Series", year: "2022", status: "In Service", location: "Charlotte, NC", color: "bg-green-500" },
+                  { id: "T-2101", model: "Freightliner Cascadia", year: "2025", status: "Pre-Delivery", location: "Customs Hub", color: "bg-purple-500" }
+                ].map((unit) => (
+                  <tr key={unit.id} className="group hover:bg-gray-50 transition-colors">
+                    <td className="py-6 font-black text-[#0A2540]">{unit.id}</td>
+                    <td className="py-6">
+                      <div className="text-sm font-bold text-[#0A2540]">{unit.model}</div>
+                      <div className="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Class 8 Tractor</div>
+                    </td>
+                    <td className="py-6 text-sm font-medium text-gray-500">{unit.year}</td>
+                    <td className="py-6">
+                      <span className="inline-flex items-center gap-2">
+                        <span className={`w-2 h-2 rounded-full ${unit.color} animate-pulse`} />
+                        <span className="text-[10px] font-black uppercase tracking-widest text-[#0A2540]">
+                          {unit.status}
+                        </span>
+                      </span>
+                    </td>
+                    <td className="py-6">
+                      <div className="flex items-center gap-2 text-sm text-gray-500 font-medium">
+                        <MapPin className="w-3.5 h-3.5 text-[#E85D04]" />
+                        {unit.location}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+          
+        <div className="mt-12 flex justify-center">
+            <button className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-[#E85D04] transition-colors border-2 border-dashed border-gray-200 px-12 py-4 rounded-2xl w-full">
+              Load More Asset Data (Displaying 7 of 382)
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Coverage Map Section */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

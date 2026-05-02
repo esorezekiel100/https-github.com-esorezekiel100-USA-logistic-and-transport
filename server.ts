@@ -1,12 +1,59 @@
 import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
+import { createServer } from "http";
+import { Server } from "socket.io";
 
 async function startServer() {
   const app = express();
+  const httpServer = createServer(app);
+  const io = new Server(httpServer, {
+    cors: {
+      origin: "*",
+      methods: ["GET", "POST"]
+    }
+  });
+
   const PORT = 3000;
 
   app.use(express.json());
+
+  // Socket.io logic
+  io.on("connection", (socket) => {
+    console.log("Client connected:", socket.id);
+
+    socket.on("join", (room) => {
+      socket.join(room);
+      console.log(`User joined room: ${room}`);
+    });
+
+    socket.on("message", (data) => {
+      console.log("Message received:", data);
+      // Broadcast to specific room (e.g., driver ID)
+      io.to(data.room).emit("message", {
+        id: Date.now().toString(),
+        text: data.text,
+        sender: data.sender, // 'driver' or 'dispatch'
+        timestamp: new Date().toISOString()
+      });
+
+      // Simple echo mock for dispatch
+      if (data.sender === "driver") {
+        setTimeout(() => {
+          io.to(data.room).emit("message", {
+            id: (Date.now() + 1).toString(),
+            text: `Dispatch received: "${data.text.slice(0, 20)}...". Checking on this for you.`,
+            sender: "dispatch",
+            timestamp: new Date().toISOString()
+          });
+        }, 1500);
+      }
+    });
+
+    socket.on("disconnect", () => {
+      console.log("Client disconnected");
+    });
+  });
 
   // API Routes
   app.post("/api/quote", (req, res) => {
@@ -59,7 +106,7 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
+  httpServer.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
 }

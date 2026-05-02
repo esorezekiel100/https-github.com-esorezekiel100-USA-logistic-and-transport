@@ -9,9 +9,9 @@ export default function Stats() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -21,10 +21,10 @@ export default function Stats() {
               transition={{ delay: index * 0.1 }}
               className="text-center group"
             >
-              <div className="text-5xl md:text-7xl font-black text-[#0A2540] mb-2 tracking-tighter transition-colors group-hover:text-[#E85D04]">
+              <div className="text-3xl sm:text-5xl md:text-7xl font-black text-[#0A2540] mb-2 tracking-tighter transition-colors group-hover:text-[#E85D04]">
                 {stat.value}<span className="text-[#E85D04]">{stat.suffix}</span>
               </div>
-              <div className="text-sm font-bold uppercase tracking-widest text-gray-500">
+              <div className="text-[10px] sm:text-sm font-bold uppercase tracking-widest text-gray-500">
                 {stat.label}
               </div>
             </motion.div>

@@ -71,17 +71,17 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-brand-light py-8 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-          <div className="flex items-center space-x-6">
+      <div className="bg-brand-light py-8 md:py-8 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold text-gray-400 uppercase tracking-widest gap-6 md:gap-0">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:space-x-6 text-center sm:text-left">
             <p>© {currentYear} US AutoLogistics</p>
-            <span className="opacity-30">|</span>
+            <span className="opacity-30 hidden sm:inline">|</span>
             <div className="flex space-x-6">
               <span>USDOT #357779</span>
               <span>MC #226461</span>
             </div>
           </div>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex flex-wrap justify-center gap-6 mt-0">
             <Link to="/privacy" className="hover:text-brand-blue transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-brand-blue transition-colors">Terms</Link>
             <div className="flex items-center gap-1.5 text-green-600">

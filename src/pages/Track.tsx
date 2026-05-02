@@ -88,22 +88,22 @@ export default function Track() {
             Enter your Shipment ID or Reference Number below to check the real-time status of your vehicle transport.
           </p>
 
-          <div className="relative max-w-2xl mx-auto mb-16">
+          <div className="relative max-w-2xl mx-auto mb-16 px-2 md:px-0">
             <form onSubmit={handleTrack} className="flex relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-                <Search className="w-6 h-6" />
+                <Search className="w-5 h-5 md:w-6 md:h-6" />
               </div>
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Enter Shipment ID (e.g. USAL-2024-8842)"
-                className="w-full bg-white border-2 border-transparent shadow-xl rounded-2xl pl-14 pr-32 py-6 text-lg focus:outline-none focus:border-[#E85D04] transition-all"
+                placeholder="Enter Shipment ID"
+                className="w-full bg-white border-2 border-transparent shadow-xl rounded-2xl pl-12 md:pl-14 pr-24 md:pr-32 py-4 md:py-6 text-sm md:text-lg focus:outline-none focus:border-[#E85D04] transition-all"
               />
               <button
                 type="submit"
                 disabled={loading}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#0A2540] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#1E3A5F] transition-all disabled:bg-gray-300"
+                className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-[#0A2540] text-white px-5 md:px-8 py-2 md:py-3 rounded-xl font-bold text-xs md:text-base hover:bg-[#1E3A5F] transition-all disabled:bg-gray-300"
               >
                 {loading ? "..." : "Track"}
               </button>
@@ -117,14 +117,14 @@ export default function Track() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              className="bg-red-50 border border-red-100 p-8 rounded-3xl text-center mb-12"
+              className="bg-red-50 border border-red-100 p-6 md:p-8 rounded-3xl text-center mb-12"
             >
-              <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-red-900 mb-2">Shipment Not Found</h3>
-              <p className="text-red-700 max-w-md mx-auto mb-6">
+              <AlertCircle className="w-10 h-10 md:w-12 md:h-12 text-red-500 mx-auto mb-4" />
+              <h3 className="text-lg md:text-xl font-bold text-red-900 mb-2">Shipment Not Found</h3>
+              <p className="text-[13px] md:text-sm text-red-700 max-w-md mx-auto mb-6">
                 Please double-check your Shipment ID. If the problem persists, contact our support team.
               </p>
-              <a href="tel:+17135807463" className="font-bold text-[#0A2540] hover:underline">
+              <a href="tel:+17135807463" className="text-sm font-bold text-[#0A2540] hover:underline">
                 Call Support: +1 (713) 580-7463
               </a>
             </motion.div>
@@ -135,39 +135,39 @@ export default function Track() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="text-left space-y-6"
+              className="text-left space-y-4 md:space-y-6"
             >
               {/* Main Status Card */}
-              <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 pb-8 border-b border-gray-50 uppercase tracking-widest text-[10px] font-bold text-gray-400">
+              <div className="bg-white p-6 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 md:mb-12 pb-6 md:pb-8 border-b border-gray-50 uppercase tracking-widest text-[9px] md:text-[10px] font-bold text-gray-400">
                   <div className="flex items-center space-x-2">
-                    <span className="text-[#0A2540]">Shipment ID:</span>
+                    <span className="text-[#0A2540]">ID:</span>
                     <span className="text-gray-900">{result.id}</span>
                   </div>
-                  <div className="flex items-center space-x-2 mt-2 md:mt-0">
-                    <span className="text-[#0A2540]">Last Update:</span>
-                    <span className="text-gray-900">{new Date(result.lastUpdate).toLocaleString()}</span>
+                  <div className="flex items-center space-x-2 mt-1 md:mt-0">
+                    <span className="text-[#0A2540]">Updated:</span>
+                    <span className="text-gray-900">{new Date(result.lastUpdate).toLocaleString([], { dateStyle: 'short', timeStyle: 'short' })}</span>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
                   <div className="space-y-1">
-                    <div className="flex items-center text-[#E85D04] mb-2 font-bold uppercase tracking-widest text-xs">
-                      <Truck className="w-4 h-4 mr-2" /> Current Status
+                    <div className="flex items-center text-[#E85D04] mb-1 font-bold uppercase tracking-widest text-[10px]">
+                      <Truck className="w-3.5 h-3.5 mr-2" /> Current Status
                     </div>
-                    <div className="text-2xl font-black text-[#0A2540]">{result.status}</div>
+                    <div className="text-xl md:text-2xl font-black text-[#0A2540]">{result.status}</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="flex items-center text-[#E85D04] mb-2 font-bold uppercase tracking-widest text-xs">
-                      <MapPin className="w-4 h-4 mr-2" /> Location
+                    <div className="flex items-center text-[#E85D04] mb-1 font-bold uppercase tracking-widest text-[10px]">
+                      <MapPin className="w-3.5 h-3.5 mr-2" /> Location
                     </div>
-                    <div className="text-2xl font-black text-[#0A2540]">{result.currentLocation}</div>
+                    <div className="text-xl md:text-2xl font-black text-[#0A2540]">{result.currentLocation}</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="flex items-center text-[#E85D04] mb-2 font-bold uppercase tracking-widest text-xs">
-                      <Calendar className="w-4 h-4 mr-2" /> Est. Delivery
+                    <div className="flex items-center text-[#E85D04] mb-1 font-bold uppercase tracking-widest text-[10px]">
+                      <Calendar className="w-3.5 h-3.5 mr-2" /> Est. Delivery
                     </div>
-                    <div className="text-2xl font-black text-[#0A2540]">{result.estimatedDelivery}</div>
+                    <div className="text-xl md:text-2xl font-black text-[#0A2540]">{result.estimatedDelivery}</div>
                   </div>
                 </div>
 

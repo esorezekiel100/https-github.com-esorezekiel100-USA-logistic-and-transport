@@ -49,29 +49,29 @@ export default function Home() {
       <Stats />
 
       {/* Services Overview */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-[#0A2540] mb-4 tracking-tighter">
               Comprehensive Logistics Solutions
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
               From individual vehicle transport to large-scale fleet management, we deliver excellence across every mile.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
                 whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100"
+                className="bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100"
               >
-                <div className="bg-[#0A2540]/5 w-16 h-16 rounded-xl flex items-center justify-center text-[#E85D04] mb-6">
+                <div className="bg-[#0A2540]/5 w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-[#E85D04] mb-6">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-bold text-[#0A2540] mb-4">{service.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                <h3 className="text-lg md:text-xl font-bold text-[#0A2540] mb-4">{service.title}</h3>
+                <p className="text-gray-600 text-[13px] md:text-sm leading-relaxed mb-6">
                   {service.description}
                 </p>
                 <Link
@@ -87,35 +87,35 @@ export default function Home() {
       </section>
 
       {/* Real-time Tracking CTA */}
-      <section className="py-24 bg-[#0A2540] text-white overflow-hidden relative">
+      <section className="py-16 md:py-24 bg-[#0A2540] text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[#E85D04]/10 -skew-x-12 translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tighter">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 tracking-tighter">
                 Transparency at Every Turn
               </h2>
-              <p className="text-gray-400 mb-8 max-w-lg leading-relaxed">
+              <p className="text-sm md:text-base text-gray-400 mb-6 md:mb-8 max-w-lg leading-relaxed">
                 Connect to USAL's advanced tracking system for real-time updates on your shipment's progress. 100% electronic tracking on all movements.
               </p>
               <Link
                 to="/track"
-                className="inline-flex items-center px-8 py-4 bg-[#E85D04] text-white rounded-full font-bold hover:bg-[#D00000] transition-all"
+                className="inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-[#E85D04] text-white rounded-full font-bold text-sm md:text-base hover:bg-[#D00000] transition-all"
               >
                 Start Tracking <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </div>
-            <div className="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
+            <div className="bg-white/5 p-6 md:p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
               <div className="space-y-4">
                 <div className="flex items-center space-x-4 pb-4 border-b border-white/10">
                   <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-sm font-medium">System Status: Operational</span>
+                  <span className="text-[11px] md:text-sm font-medium">System Status: Operational</span>
                 </div>
                 <div className="pt-4">
-                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">Track Sample</label>
-                  <div className="flex">
-                    <div className="bg-white/10 flex-grow px-4 py-3 rounded-l-lg font-mono text-sm">USAL-2024-8842</div>
-                    <button className="bg-white text-[#0A2540] px-6 py-3 rounded-r-lg font-bold text-sm">Track</button>
+                  <label className="block text-[10px] uppercase tracking-widest text-gray-500 mb-2">Track Sample</label>
+                  <div className="flex flex-col sm:flex-row">
+                    <div className="bg-white/10 flex-grow px-4 py-3 rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none font-mono text-sm">USAL-2024-8842</div>
+                    <button className="bg-white text-[#0A2540] px-6 py-3 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none font-bold text-sm">Track</button>
                   </div>
                 </div>
               </div>
@@ -125,26 +125,26 @@ export default function Home() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-24 bg-white text-center">
+      <section className="py-16 md:py-24 bg-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-6xl font-bold text-[#0A2540] mb-8 tracking-tighter">
+          <h2 className="text-3xl md:text-6xl font-bold text-[#0A2540] mb-6 md:mb-8 tracking-tighter">
             Ready to experience the USAL difference?
           </h2>
-          <p className="text-xl text-gray-600 mb-12">
+          <p className="text-lg md:text-xl text-gray-600 mb-10 md:mb-12">
             Contact us today for a custom quote or more information about our national brokerage network.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
             <Link
               to="/quote"
-              className="px-10 py-4 bg-[#0A2540] text-white rounded-full font-bold hover:bg-[#1E3A5F] transition-all"
+              className="px-8 md:px-10 py-3 md:py-4 bg-[#0A2540] text-white rounded-full font-bold text-sm md:text-base hover:bg-[#1E3A5F] transition-all"
             >
               Get a Free Quote
             </Link>
             <a
               href="tel:+17135807463"
-              className="px-10 py-4 border-2 border-[#0A2540] text-[#0A2540] rounded-full font-bold hover:bg-gray-50 transition-all flex items-center justify-center"
+              className="px-8 md:px-10 py-3 md:py-4 border-2 border-[#0A2540] text-[#0A2540] rounded-full font-bold text-sm md:text-base hover:bg-gray-50 transition-all flex items-center justify-center"
             >
-              <Phone className="mr-2 w-5 h-5" /> +1 (713) 580-7463
+              <Phone className="mr-2 w-4 h-4 md:w-5 md:h-5" /> +1 (713) 580-7463
             </a>
           </div>
         </div>
